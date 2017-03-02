@@ -3,6 +3,7 @@ require "unirest"
 
 module LjoyceCustomerScoring
   class Analysis
+    attr_reader :propensity, :ranking
 
     def initialize(input)
       @propensity = input["propensity"]
