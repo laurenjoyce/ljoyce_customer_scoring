@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-query = LjoyceCustomerScoring::Analysis.query(income: 50000, zipcode: 60201, age: 35)
+```query = LjoyceCustomerScoring::Analysis.query(income: 50000, zipcode: 60201, age: 35)```
 
 ## Development
 
