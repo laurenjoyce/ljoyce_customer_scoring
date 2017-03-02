@@ -5,8 +5,8 @@ module LjoyceCustomerScoring
   class Analysis
     def self.new(input)
       {
-        "propensity": 0.26532,
-        "ranking": "C"
+        "propensity": rand.round(5),
+        "ranking": ["A", "B", "C", "D", "E", "F"].sample
       }
     end
 
