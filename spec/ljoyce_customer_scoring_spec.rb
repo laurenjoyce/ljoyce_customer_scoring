@@ -5,7 +5,8 @@ describe LjoyceCustomerScoring do
     expect(LjoyceCustomerScoring::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "returns a JSON response" do
+    expect(LjoyceCustomerScoring::Analysis.new("test")).to eq({
+      "propensity": 0.26532, "ranking": "C"})
   end
 end
