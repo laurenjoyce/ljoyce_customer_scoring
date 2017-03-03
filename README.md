@@ -40,7 +40,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Unit Testing
 
-This gem includes an RSPEC test suite.
+This gem includes an RSPEC test suite:
 
 * Clone github repo
 * Cd into gem folder
