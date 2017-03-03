@@ -36,7 +36,7 @@ module LjoyceCustomerScoring
         return analysis
       else
         # If request_parameter is invalid
-        invalid_request_message = "Invalid request: must include valid parameters for income, zipcode, age."
+        invalid_request_message = "Invalid request: must include valid request parameters for income, zipcode, age."
         return invalid_request_message
       end
     end
