@@ -5,32 +5,33 @@ module LjoyceCustomerScoring
   class Analysis
     attr_reader :propensity, :ranking
 
+    # creates an instance of the Analysis class, which assigns values to instance variables @propensity and @ranking based on the input hash
     def initialize(input)
       @propensity = input["propensity"]
       @ranking = input["ranking"]
     end
 
-    def self.query(input_parameters)
-      # if params include age, zipcode, and income
-      if input_parameters[:income] && input_parameters[:zipcode] && input_parameters[:age]
-        # mock api endpoint
-        data = Unirest.get("https://jsonplaceholder.typicode.com/users?
-          income=#{input_parameters[:income]}&
-          zipcode=#{input_parameters[:zipcode]}&
-          age=#{input_parameters[:age]}"
+    def self.request(request_parameters)
+      # if request_parameters include age, zipcode, and income
+      if request_parameters[:income] && request_parameters[:zipcode] && request_parameters[:age]
+        # using a mock api endpoint
+        data = Unirest.get("http://www.mocky.io/v2/58b906ee0f00006706f09b9b?
+          income=#{request_parameters[:income]}&
+          zipcode=#{request_parameters[:zipcode]}&
+          age=#{request_parameters[:age]}"
         ).body
 
-        # use this hash to instantiate Analysis – Analysis.initialize(query_result), which returns random propensity and ranking data
-        query_result = {
-          "propensity" => rand.round(5),
-          "ranking" => ["A", "B", "C", "D", "E", "F"].sample
+        # use this hash to instantiate Analysis – Analysis.initialize(request_result), which returns instance variables @propensity and @ranking request_parameters
+        request_result = {
+          "propensity" => data[0]["propensity"],
+          "ranking" => data[0]["ranking"]
         }
 
-        analysis = Analysis.new(query_result)
+        analysis = Analysis.new(request_result)
         return analysis
       else
-        # if params are missing an attribute
-        return "Invalid query."
+        # if request_parameter is invalid
+        return "Invalid request."
       end
     end
 
