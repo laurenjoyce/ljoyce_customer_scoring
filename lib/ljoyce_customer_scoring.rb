@@ -4,7 +4,6 @@ require "unirest"
 module LjoyceCustomerScoring
   class Analysis
     attr_reader :propensity, :ranking
-
     # Creates an instance of the Analysis class, which assigns values to instance variables @propensity and @ranking based on the input hash
     def initialize(input)
       @propensity = input["propensity"]
@@ -12,29 +11,31 @@ module LjoyceCustomerScoring
     end
 
     def self.request(request_parameters)
-      # If request_parameters include age, zipcode, and income
-      if request_parameters[:income] && request_parameters[:zipcode] && request_parameters[:age]
+      # If request_parameters is a hash object, includes age, zipcode, and income keys
+      if request_parameters.class == Hash &&
+         request_parameters[:income] &&
+         request_parameters[:zipcode] &&
+         request_parameters[:age]
         # Using a mock api endpoint
         mock_api = "http://www.mocky.io/v2/58b906ee0f00006706f09b9b"
-        data = Unirest.get("#{mock_api}?
+        data = Unirest.get(
+          "#{mock_api}?
           income=#{request_parameters[:income]}&
           zipcode=#{request_parameters[:zipcode]}&
           age=#{request_parameters[:age]}"
         ).body
-
-        # Use this hash to instantiate Analysis – Analysis.initialize(request_result), which returns instance variables @propensity and @ranking request_parameters
+        # Use this hash to instantiate Analysis – Analysis.initialize(request_result), which returns instance variables @propensity and @ranking
         request_result = {
           "propensity" => data[0]["propensity"],
           "ranking" => data[0]["ranking"]
         }
-
         analysis = Analysis.new(request_result)
         return analysis
       else
         # If request_parameter is invalid
-        return "Invalid request."
+        invalid_request_message = "Invalid request: must include valid parameters for income, zipcode, age."
+        return invalid_request_message
       end
     end
-
   end
 end
