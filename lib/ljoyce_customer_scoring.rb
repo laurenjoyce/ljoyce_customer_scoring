@@ -15,7 +15,8 @@ module LjoyceCustomerScoring
       # if request_parameters include age, zipcode, and income
       if request_parameters[:income] && request_parameters[:zipcode] && request_parameters[:age]
         # using a mock api endpoint
-        data = Unirest.get("http://www.mocky.io/v2/58b906ee0f00006706f09b9b?
+        mock_api = "http://www.mocky.io/v2/58b906ee0f00006706f09b9b"
+        data = Unirest.get("#{mock_api}?
           income=#{request_parameters[:income]}&
           zipcode=#{request_parameters[:zipcode]}&
           age=#{request_parameters[:age]}"
