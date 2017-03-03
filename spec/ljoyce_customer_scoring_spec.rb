@@ -5,13 +5,13 @@ describe LjoyceCustomerScoring do
     expect(LjoyceCustomerScoring::VERSION).not_to be nil
   end
 
-  # query method returns an Analysis object
+  # Query method returns an Analysis object
   it "returns an instance of the Analysis class" do
     expect(LjoyceCustomerScoring::Analysis.request(
       income: 50000, zipcode: 60201, age: 35)).to be_a LjoyceCustomerScoring::Analysis
   end
 
-  # query method returns "Invalid query." for invalid query parameters
+  # Query method returns "Invalid query." for invalid query parameters
   # NOTE: this test fails when using the mock API, as the mock API won't take in an argument for parameters. Test will pass with an API enpoint that accepts parameters
   it "fails validation with invalid query parameters, expect to return message \'Invalid request.\'" do
     expect(LjoyceCustomerScoring::Analysis.request(

@@ -42,9 +42,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 This gem includes an RSPEC test suite.
 
-* clone github repo
-* cd into gem folder
-* run 'bundle exec rspec' in your terminal
+* Clone github repo
+* Cd into gem folder
+* Run 'bundle exec rspec' in your terminal
 
 ## License
 
