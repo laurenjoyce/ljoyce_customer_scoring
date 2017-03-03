@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["joycelc4186@gmail.com"]
 
   spec.summary       = %q{Mock consumer scoring}
-  spec.description   = %q{Returns consumer propensity and ranking JSON data based on income, zipcode, and age.}
+  spec.description   = %q{Returns consumer propensity and ranking data based on income, zipcode, and age.}
   spec.homepage      = "https://github.com/laurenjoyce/ljoyce_customer_scoring"
   spec.license       = "MIT"
 
