@@ -11,11 +11,14 @@ module LjoyceCustomerScoring
     end
 
     def self.request(request_parameters)
-      # If request_parameters is a hash object, includes age, zipcode, and income keys
+      # If request_parameters is meets the following argument requirements
       if request_parameters.class == Hash &&
          request_parameters[:income] &&
          request_parameters[:zipcode] &&
-         request_parameters[:age]
+         request_parameters[:age] &&
+         request_parameters[:income] > 0 &&
+         request_parameters[:zipcode].to_s.length == 5 &&
+         request_parameters[:age] > 0
         # Using a mock api endpoint
         mock_api = "http://www.mocky.io/v2/58b906ee0f00006706f09b9b"
         data = Unirest.get(
