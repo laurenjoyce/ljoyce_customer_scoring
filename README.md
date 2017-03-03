@@ -46,7 +46,7 @@ This gem includes an RSPEC test suite.
 * Cd into gem folder
 * Run 'bundle exec rspec' in your terminal
 
-Note: The invalid request test fails when using the mock API, as the mock API won't take in an argument for parameters. Test will pass with an API enpoint that accepts parameters
+Note: The 'invalid request' test fails when using the mock API, as the mock API won't take in an argument for parameters. Test will pass with an API enpoint that accepts parameters
 
 ## License
 
